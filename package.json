@@ -4,20 +4,24 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "gulp": "gulp",
+    "build-dev": "export NODE_ENV=development && gulp",
+    "build-prod": "export NODE_ENV=production && gulp"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
+  "devDependencies": {
+    "del": "^3.0.0",
+    "eslint": "^4.19.1",
+    "gulp": "^3.9.1",
+    "gulp-sass": "^4.0.1",
+    "gulp-uglify": "^3.0.0",
+    "require-dir": "^1.0.0"
+  },
   "dependencies": {
-    "bootstrap": "4.1",
-    "del": "3.0",
-    "eslint": "4.19",
-    "font-awesome": "4.7",
-    "gulp": "3.9",
-    "gulp-sass": "4.0",
-    "gulp-uglify": "3.0",
-    "jquery": "3.3",
-    "popper.js": "1.14",
-    "require-dir": "1.0"
+    "bootstrap": "^4.1.0",
+    "font-awesome": "^4.7.0",
+    "jquery": "^3.3.1",
+    "popper.js": "^1.14.3"
   }
 }
