@@ -12,6 +12,12 @@ module.exports = {
       maxLogSize: 5000000,
       backup: 10,
     },
+    MultiFileLogAppender: {
+      type: "multifile",
+      base: path.join(ROOT, "./log/application/"),
+      property: "key",
+      extension: ".log",
+    },
   },
   categories: {
     default: {
@@ -20,6 +26,10 @@ module.exports = {
     },
     system: {
       appenders: ["FileLogAppender"],
+      level: "ERROR",
+    },
+    application: {
+      appenders: ["MultiFileLogAppender"],
       level: "ERROR",
     },
   },
