@@ -1,3 +1,4 @@
+const accesslogger = require("./lib/log/accesslogger.js");
 const systemlogger = require("./lib/log/sytemlogger");
 const express = require("express");
 const app = express();
@@ -13,6 +14,8 @@ app.use(
       (process.env.NODE_ENV === "development" ? "development" : "production")
   )
 );
+
+app.use(accesslogger());
 
 app.use("/", require("./routes/index"));
 app.use(systemlogger());
