@@ -16,6 +16,10 @@
     <%- include("../_share/navbar.ejs") %>
 
     <main role="main" class="container">
+      <div class="float-right">
+        <span class="badge badge-secondary"><%= count %>件</span>
+      </div>
+
       <form class="form-inline my-5" method="get" , action="/search">
         <input
           class="form-control"
@@ -30,6 +34,24 @@
       <div class="my-5">
         <% for(let item of list) { %> <%- include("./item.ejs", item) %> <% } %>
       </div>
+      <nav>
+        <ul class="pagination">
+          <% for(let i = 1; i <= pagination.max; i++) { %> <%
+          if(pagination.current !== i) { %>
+          <li class="page-item">
+            <a
+              class="page-link"
+              href="/search/?keyword=<%= keyword %>&page=<%= i %>"
+              ><%= i %></a
+            >
+          </li>
+          <% } else { %>
+          <li class="page-item active">
+            <span class="page-link disabled"><%= i %></span>
+          </li>
+          <% } %> <% } %>
+        </ul>
+      </nav>
     </main>
 
     <%- include("../_share/javascripts.ejs") %>
